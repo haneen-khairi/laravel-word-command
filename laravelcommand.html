@@ -1,0 +1,63 @@
+Clearing All Cache laravel:
+
+php artisan optimize:clear
+php artisan config:clear
+php artisan config:cache
+php artisan route:clear
+php artisan route:cache
+php artisan view:clear
+php artisan view:cache
+php artisan event:clear
+php artisan event:cache
+php artisan cache:clear
+php artisan optimize:clear
+
+Clearing Composer Cache
+composer dump-autoload
+composer clear-cache
+composer clearcache
+composer cc
+
+Clearing NPM Cache
+npm cache clean –force
+
+🏁 Summary
+php artisan list 
+
+
+
+
+
+
+Htaccess.
+<IfModule mod_rewrite.c>
+Options +FollowSymLinks
+RewriteEngine On
+
+<Files .env>
+    order allow,deny
+    Deny from allow
+    
+</Files>
+# Block access to dot file
+location ~ /. {
+    deny  all;
+}
+<filesMatch ".(ico|pdf|flv|jpg|jpeg|png|gif|svg|js|css|swf)$">
+        Header set Cache-Control "max-age=84600, public"
+</filesMatch>
+RewriteCond %{REQUEST_URI} !^/public/ 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ /public/$1 
+#RewriteRule ^ index.php [L]
+RewriteRule ^(/)?$ public/index.php [L] 
+</IfModule>
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteCond %{HTTP_HOST} ^alesayiholding\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.alesayiholding\.com$
+RewriteRule ^(.*)$ "https\:\/\/alesayiholding\.com\/$1" [R=301,L]
+
+Maintenance Mode check that.
+
